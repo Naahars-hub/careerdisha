@@ -2,7 +2,7 @@
 
 import { createClient } from '@/lib/supabase/client'
 import { useState, useEffect } from 'react'
-import styles from './CreativeLoginModal.module.css'
+import styles from './CustomLoginForm.module.css'
 
 interface CreativeLoginModalProps {
   isOpen: boolean;
@@ -173,15 +173,15 @@ export default function CreativeLoginModal({ isOpen, onClose }: CreativeLoginMod
               </div>
               {errors.password && (
                 <span className={styles.errorMessage}>{errors.password}</span>
-          )}
+              )}
 
-          <button
-            type="submit"
+              <button
+                type="submit"
                 className={`${styles.neumorphBtn} ${isLoading ? styles.loading : ''}`}
                 disabled={isLoading}
-          >
+              >
                 {isLoading ? 'Entering...' : 'Enter Creative Space'}
-          </button>
+              </button>
             </form>
 
             <div className={styles.or}>or explore with</div>

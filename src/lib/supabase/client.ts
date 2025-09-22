@@ -16,8 +16,8 @@ export const createClient = () => {
           signOut: async () => ({ error: null }),
           signInWithPassword: async () => ({ data: { user: null }, error: { message: 'Supabase not configured' } }),
           signUp: async () => ({ data: { user: null }, error: { message: 'Supabase not configured' } }),
-          signInWithOAuth: async (options: { provider: string; options?: Record<string, unknown> }) => ({ error: { message: 'Supabase not configured' } }),
-          resetPasswordForEmail: async (email: string, options?: Record<string, unknown>) => ({ error: { message: 'Supabase not configured' } })
+          signInWithOAuth: async () => ({ error: { message: 'Supabase not configured' } }),
+          resetPasswordForEmail: async () => ({ error: { message: 'Supabase not configured' } })
         } as unknown as ReturnType<typeof createClientComponentClient>,
         from: () => ({
           select: () => ({

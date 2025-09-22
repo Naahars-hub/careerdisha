@@ -3,7 +3,6 @@
 import { createClient } from '@/lib/supabase/client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useTheme } from '@/components/ThemeProvider'
 import LocationCollector from './LocationCollector'
 import { LocationData } from '@/lib/locationService'
 import styles from './LoginModal.module.css'
@@ -29,7 +28,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
   const [showEmailConfirmation, setShowEmailConfirmation] = useState(false)
   const [userEmail, setUserEmail] = useState('')
   const [showLocationCollection, setShowLocationCollection] = useState(false)
-  // const [userLocation, setUserLocation] = useState<LocationData | null>(null)
+  const [, setUserLocation] = useState<LocationData | null>(null)
   
   const supabase = createClient()
   const router = useRouter()
@@ -452,7 +451,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
                 {!forgotPasswordSent ? (
                   <>
                     <h3>Reset Password</h3>
-                    <p>Enter your email address and we'll send you a link to reset your password.</p>
+                    <p>Enter your email address and we&apos;ll send you a link to reset your password.</p>
                     <form onSubmit={handleForgotPassword}>
                       <div className={styles.inputGroup}>
                         <div className={styles.inputWrapper}>
