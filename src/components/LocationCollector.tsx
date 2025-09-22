@@ -120,7 +120,7 @@ export default function LocationCollector({
     <div className={`${styles.locationCollector} ${className}`}>
       <div className={styles.header}>
         <h3>📍 Help us personalize your experience</h3>
-        <p>We'll use your location to show nearby colleges and opportunities</p>
+        <p>We&apos;ll use your location to show nearby colleges and opportunities</p>
       </div>
 
       {error && (

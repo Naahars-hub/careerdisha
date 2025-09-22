@@ -52,7 +52,7 @@ export default function DebugLocationPage() {
       const response = await fetch('/api/test-db')
       const result = await response.json()
       setTestResult(result)
-    } catch (error) {
+    } catch {
       setTestResult({ error: 'Failed to test database' })
     }
   }

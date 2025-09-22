@@ -2,7 +2,7 @@
 
 import { createClient } from '@/lib/supabase/client'
 import { useState, useEffect } from 'react'
-import styles from './CreativeLoginModal.module.css'
+import styles from './CustomLoginForm.module.css'
 
 interface CreativeLoginModalProps {
   isOpen: boolean;
