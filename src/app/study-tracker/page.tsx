@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import styles from './study-tracker.module.css';
 import ProgressBar from '@/components/ProgressBar';
@@ -38,14 +38,14 @@ export default function StudyTrackerPage() {
   const [showAddSession, setShowAddSession] = useState(false);
   const [showAddGoal, setShowAddGoal] = useState(false);
   const [showGoalTimers, setShowGoalTimers] = useState(false);
-  const [goalTimeData, setGoalTimeData] = useState<{ [goalId: string]: number }>({});
+  // const [goalTimeData, setGoalTimeData] = useState<{ [goalId: string]: number }>({});
   const supabase = createClient();
 
   useEffect(() => {
     loadStudyData();
-  }, []);
+  }, [loadStudyData]);
 
-  const loadStudyData = async () => {
+  const loadStudyData = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       
@@ -84,7 +84,7 @@ export default function StudyTrackerPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [supabase]);
 
   const startSession = async (subject: string, topic: string, difficulty: 'easy' | 'medium' | 'hard', goalId?: string) => {
     const { data: { user } } = await supabase.auth.getUser();

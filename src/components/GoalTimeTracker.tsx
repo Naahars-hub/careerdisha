@@ -29,7 +29,7 @@ export default function GoalTimeTracker({
   useEffect(() => {
     const savedData = localStorage.getItem(`goal_${goalId}`);
     if (savedData) {
-      const { totalTime, isCompleted } = JSON.parse(savedData);
+      const { totalTime } = JSON.parse(savedData);
       setTotalTimeSpent(totalTime || 0);
     }
   }, [goalId]);

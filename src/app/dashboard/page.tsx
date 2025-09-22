@@ -60,7 +60,7 @@ export default function DashboardPage() {
               const requestData = JSON.parse(storedData);
               const educationLevel = requestData.baseData?.educationLevel;
               setEducationLevel(educationLevel);
-            } catch (e) {
+            } catch {
               console.log('Could not parse stored career data for education level');
             }
           }

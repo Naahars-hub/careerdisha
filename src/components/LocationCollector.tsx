@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { locationService, LocationData, LocationError } from '@/lib/locationService'
 import styles from './LocationCollector.module.css'
 
@@ -209,7 +209,7 @@ export default function LocationCollector({
             )}
             {citySearch && filteredCities.length === 0 && (
               <div className={styles.noResults}>
-                🔍 No cities found matching "{citySearch}"
+                🔍 No cities found matching &quot;{citySearch}&quot;
               </div>
             )}
           </div>

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // --- DEVELOPMENT SWITCH ---
 // Set this to 'true' to use mock data and save your API quota.
 // Set this to 'false' to use the real Gemini API.
-const useMockData = false;
+// const useMockData = false;
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 

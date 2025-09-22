@@ -48,7 +48,7 @@ export default function LocationPrompt({ onLocationCollected, className = '' }: 
     }
   }
 
-  const handleLocationError = (error: any) => {
+  const handleLocationError = (error: Error) => {
     console.error('Location collection error:', error)
     setShowCollector(false)
   }

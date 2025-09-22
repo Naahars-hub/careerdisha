@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
@@ -10,7 +10,7 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [showEmailConfirmation, setShowEmailConfirmation] = useState(false)
-  const [userEmail, setUserEmail] = useState('')
+  const [userEmail] = useState('')
   const [user, setUser] = useState<User | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMode, setModalMode] = useState<'signin' | 'signup'>('signup')
@@ -82,10 +82,10 @@ export default function Home() {
   };
 
   // Handle successful login - redirect to start page
-  const handleLoginSuccess = () => {
-    setIsModalOpen(false);
-    router.push('/start');
-  };
+  // const handleLoginSuccess = () => {
+  //   setIsModalOpen(false);
+  //   router.push('/start');
+  // };
 
   return (
     <>
@@ -175,10 +175,10 @@ export default function Home() {
                 <h2>Confirm Your Email</h2>
               </div>
               <p className={styles.modalSubtitle}>
-                We've sent a confirmation link to <strong>{userEmail}</strong>
+                We&apos;ve sent a confirmation link to <strong>{userEmail}</strong>
               </p>
               <p>Please check your email and click the link to activate your account.</p>
-              <p>You'll be automatically logged in after confirmation.</p>
+              <p>You&apos;ll be automatically logged in after confirmation.</p>
             </div>
           </div>
         </div>

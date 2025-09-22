@@ -157,7 +157,7 @@ export async function POST(req: Request) {
 
   } catch (error: unknown) {
     console.error("Error in getCareerResources API:", error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    // const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
     
     // Fallback to mock data if API fails
     console.log("Falling back to mock data due to API error");

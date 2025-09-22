@@ -4,14 +4,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
 // --- DEVELOPMENT SWITCH ---
-const useMockData = false;
+// const useMockData = false;
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
 /**
  * Builds a detailed, dynamic prompt for the Gemini API based on student data.
  */
-function buildPrompt(data: { baseData: Record<string, string>; mcqAnswers: Record<string, string> }, userLocation?: any) {
+interface UserLocation {
+  location_city?: string;
+  location_state?: string;
+  location_country?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+function buildPrompt(data: { baseData: Record<string, string>; mcqAnswers: Record<string, string> }, userLocation?: UserLocation) {
   const { baseData, mcqAnswers } = data;
   
   const mcqAnswersString = Object.entries(mcqAnswers)

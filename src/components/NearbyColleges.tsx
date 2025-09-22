@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { LocationData } from '@/lib/locationService'
 import styles from './NearbyColleges.module.css'
 
@@ -45,9 +45,9 @@ export default function NearbyColleges({ userLocation, className = '' }: NearbyC
 
   useEffect(() => {
     fetchNearbyColleges()
-  }, [userLocation, radius, selectedType])
+  }, [userLocation, radius, selectedType, fetchNearbyColleges])
 
-  const fetchNearbyColleges = async () => {
+  const fetchNearbyColleges = useCallback(async () => {
     setIsLoading(true)
     setError('')
     
@@ -77,7 +77,7 @@ export default function NearbyColleges({ userLocation, className = '' }: NearbyC
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userLocation, radius, selectedType])
 
   const formatDistance = (distance: number) => {
     if (distance < 1) {

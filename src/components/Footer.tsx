@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import LoginModal from './LoginModal';
@@ -50,9 +51,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLinks}>
-          <a href="/" className={styles.footerLink}>Home</a>
+          <Link href="/" className={styles.footerLink}>Home</Link>
             <button onClick={handleGetStartedClick} className={styles.footerLink}>Get Started</button>
-          <a href="/dashboard" className={styles.footerLink}>Dashboard</a>
+          <Link href="/dashboard" className={styles.footerLink}>Dashboard</Link>
           <a href="#" className={styles.footerLink}>Privacy Policy</a>
           <a href="#" className={styles.footerLink}>Terms of Service</a>
         </div>

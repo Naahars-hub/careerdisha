@@ -29,11 +29,11 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
   const [showEmailConfirmation, setShowEmailConfirmation] = useState(false)
   const [userEmail, setUserEmail] = useState('')
   const [showLocationCollection, setShowLocationCollection] = useState(false)
-  const [userLocation, setUserLocation] = useState<LocationData | null>(null)
+  // const [userLocation, setUserLocation] = useState<LocationData | null>(null)
   
   const supabase = createClient()
   const router = useRouter()
-  const { theme } = useTheme()
+  // const { theme } = useTheme()
 
   useEffect(() => {
     if (isOpen) {
@@ -131,7 +131,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
           setShowLocationCollection(true)
         }
       }
-    } catch (error) {
+    } catch {
       setErrors({ email: '', password: '', general: 'Something went wrong. Please try again!' })
     } finally {
       setIsLoading(false)
@@ -160,7 +160,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
       }
 
       setForgotPasswordSent(true)
-    } catch (error) {
+    } catch {
       setErrors({ email: '', password: '', general: 'Something went wrong. Please try again!' })
     } finally {
       setIsLoading(false)
@@ -237,7 +237,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
     }
   }
 
-  const handleLocationError = (error: any) => {
+  const handleLocationError = (error: Error) => {
     console.error('Location collection error:', error)
     // Continue with the flow even if location collection fails
     setShowLocationCollection(false)
@@ -302,9 +302,9 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
               <div className={styles.successMessage}>
                 <div className={styles.successIcon}>📧</div>
                 <h3>Confirm Your Email</h3>
-                <p>We've sent a confirmation link to <strong>{userEmail}</strong></p>
+                <p>We&apos;ve sent a confirmation link to <strong>{userEmail}</strong></p>
                 <p>Please check your email and click the link to activate your account.</p>
-                <p>You'll be automatically logged in after confirmation.</p>
+                <p>You&apos;ll be automatically logged in after confirmation.</p>
                 <button 
                   type="button"
                   className={styles.backButton}
@@ -506,7 +506,7 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
                   <div className={styles.successMessage}>
                     <div className={styles.successIcon}>📧</div>
                     <h3>Check Your Email</h3>
-                    <p>We've sent a password reset link to <strong>{forgotPasswordEmail}</strong></p>
+                    <p>We&apos;ve sent a password reset link to <strong>{forgotPasswordEmail}</strong></p>
                     <p>Please check your email and click the link to reset your password.</p>
                     <button 
                       type="button"

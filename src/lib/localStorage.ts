@@ -45,7 +45,7 @@ export class LocationStorage {
       const parsedData = JSON.parse(storedData)
       
       // Remove the savedAt field and return only LocationData
-      const { savedAt, ...locationData } = parsedData
+      const { savedAt: _, ...locationData } = parsedData
       
       return locationData as LocationData
     } catch (error) {

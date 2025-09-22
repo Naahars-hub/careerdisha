@@ -7,9 +7,14 @@ import LocationCollector from '@/components/LocationCollector'
 import { LocationData } from '@/lib/locationService'
 import styles from './location-setup.module.css'
 
+interface User {
+  id: string;
+  email?: string;
+}
+
 export default function LocationSetupPage() {
   const [isLoading, setIsLoading] = useState(true)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [locationCollected, setLocationCollected] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -61,7 +66,7 @@ export default function LocationSetupPage() {
     }
   }
 
-  const handleLocationError = (error: any) => {
+  const handleLocationError = (error: Error) => {
     console.error('Location collection error:', error)
     // Still redirect even if location collection fails
     setLocationCollected(true)

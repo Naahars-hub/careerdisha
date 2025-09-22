@@ -49,6 +49,8 @@ interface SkillIndiaCourse {
   sector: string;
   duration: string;
   level: string;
+  provider?: string;
+  certification?: string;
 }
 
 interface SkillIndiaTool {
@@ -102,7 +104,7 @@ export default function CareerMapPage() {
 
   // --- GOAL TRACKING STATE ---
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [goalTimeData, setGoalTimeData] = useState<{ [goalId: string]: number }>({});
+  // const [goalTimeData, setGoalTimeData] = useState<{ [goalId: string]: number }>({});
   const [showGoals, setShowGoals] = useState(false);
   // --- END GOAL STATE ---
 
@@ -196,12 +198,12 @@ export default function CareerMapPage() {
   };
 
   // Goal tracking handlers
-  const handleGoalTimeUpdate = (goalId: string, elapsedTime: number) => {
-    setGoalTimeData(prev => ({
-      ...prev,
-      [goalId]: elapsedTime
-    }));
-  };
+  // const handleGoalTimeUpdate = (goalId: string, elapsedTime: number) => {
+  //   setGoalTimeData(prev => ({
+  //     ...prev,
+  //     [goalId]: elapsedTime
+  //   }));
+  // };
 
   const handleGoalComplete = (goalId: string) => {
     console.log(`Goal completed: ${goalId}`);
@@ -518,14 +520,14 @@ export default function CareerMapPage() {
                                         <span className={styles.level}>{course.level}</span>
                                         <span className={styles.duration}>{course.duration}</span>
                                       </div>
-                                      {(course as any).provider && (
+                                      {course.provider && (
                                         <div className={styles.courseProvider}>
-                                          <span className={styles.provider}>Provider: {(course as any).provider}</span>
-                                          <span className={styles.certification}>✓ {(course as any).certification}</span>
+                                          <span className={styles.provider}>Provider: {course.provider}</span>
+                                          <span className={styles.certification}>✓ {course.certification}</span>
                                         </div>
                                       )}
                                       <div className={styles.courseInstructions}>
-                                        <small>💡 Search for "{course.title}" on the Skill India platform</small>
+                                        <small>💡 Search for &quot;{course.title}&quot; on the Skill India platform</small>
                                       </div>
                                     </div>
                                   ))}
@@ -598,7 +600,6 @@ export default function CareerMapPage() {
                     goalId={goal.id}
                     goalTitle={goal.title}
                     targetHours={goal.targetHours}
-                    onTimeUpdate={handleGoalTimeUpdate}
                     onGoalComplete={handleGoalComplete}
                   />
                 ))}

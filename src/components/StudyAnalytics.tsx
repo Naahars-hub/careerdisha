@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from './StudyAnalytics.module.css';
 import ProgressBar from './ProgressBar';
 
@@ -44,9 +44,9 @@ export default function StudyAnalytics({ sessions, goals }: StudyAnalyticsProps)
 
   useEffect(() => {
     calculateAnalytics();
-  }, [sessions, goals, selectedPeriod]);
+  }, [sessions, goals, selectedPeriod, calculateAnalytics]);
 
-  const calculateAnalytics = () => {
+  const calculateAnalytics = useCallback(() => {
     const now = new Date();
     let filteredSessions = sessions.filter(session => session.completed);
 
@@ -87,7 +87,7 @@ export default function StudyAnalytics({ sessions, goals }: StudyAnalyticsProps)
       weeklyGoal,
       weeklyProgress
     });
-  };
+  }, [sessions, goals, selectedPeriod]);
 
   const calculateStudyStreak = (sessions: StudySession[]) => {
     if (sessions.length === 0) return 0;

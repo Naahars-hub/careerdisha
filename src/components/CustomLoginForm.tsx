@@ -36,7 +36,7 @@ export default function CreativeLoginModal({ isOpen, onClose }: CreativeLoginMod
     if (!email) return 'Your creative email is required'
     if (!emailRegex.test(email)) return 'Please enter a valid email address'
     return ''
-        }
+  }
         
   const validatePassword = (password: string) => {
     if (!password) return 'Your creative password is required'

@@ -574,7 +574,7 @@ const skillIndiaCourses: SkillIndiaCourse[] = [
 // Function to search courses by career title or keywords
 export function searchCoursesByCareer(careerTitle: string): SkillIndiaCourse[] {
   const searchTerms = careerTitle.toLowerCase().split(' ').filter(term => term.length > 2);
-  const relevantCourses: SkillIndiaCourse[] = [];
+  // const relevantCourses: SkillIndiaCourse[] = [];
   
   // Enhanced career-to-course mapping with more comprehensive coverage
   const careerMappings: { [key: string]: { keywords: string[], sectors: string[], priority: number } } = {

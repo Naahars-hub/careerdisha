@@ -47,7 +47,7 @@ export class LocationService {
             const { latitude, longitude } = position.coords;
             const locationData = await this.reverseGeocode(latitude, longitude);
             resolve(locationData);
-          } catch (error) {
+          } catch {
             reject({
               code: 1,
               message: 'Failed to get location details from coordinates.'
@@ -103,7 +103,7 @@ export class LocationService {
         city: data.city || data.locality || 'Unknown',
         timezone: data.localityInfo?.administrative?.[0]?.timezone || 'UTC'
       };
-    } catch (error) {
+    } catch {
       // Fallback to basic location data if reverse geocoding fails
       return {
         latitude,
@@ -146,7 +146,7 @@ export class LocationService {
         city: result.city || result.locality || city,
         timezone: result.localityInfo?.administrative?.[0]?.timezone || 'UTC'
       };
-    } catch (error) {
+    } catch {
       throw {
         code: 2,
         message: 'Failed to find location. Please check your input and try again.'

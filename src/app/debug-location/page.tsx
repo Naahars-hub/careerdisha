@@ -5,11 +5,26 @@ import { createClient } from '@/lib/supabase/client'
 import LocationCollector from '@/components/LocationCollector'
 import { LocationData } from '@/lib/locationService'
 
+interface User {
+  id: string;
+  email?: string;
+}
+
+interface ProfileData {
+  data: unknown;
+  error: unknown;
+}
+
+interface TestResult {
+  error?: string;
+  [key: string]: unknown;
+}
+
 export default function DebugLocationPage() {
-  const [user, setUser] = useState<any>(null)
-  const [profileData, setProfileData] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [profileData, setProfileData] = useState<ProfileData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [testResult, setTestResult] = useState<any>(null)
+  const [testResult, setTestResult] = useState<TestResult | null>(null)
   const supabase = createClient()
 
   useEffect(() => {
