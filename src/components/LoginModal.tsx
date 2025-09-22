@@ -28,7 +28,11 @@ export default function LoginModal({ isOpen, onClose, mode = 'signup' }: LoginMo
   const [showEmailConfirmation, setShowEmailConfirmation] = useState(false)
   const [userEmail, setUserEmail] = useState('')
   const [showLocationCollection, setShowLocationCollection] = useState(false)
+<<<<<<< HEAD
   const [, setUserLocation] = useState<LocationData | null>(null)
+=======
+  const [userLocation, setUserLocation] = useState<LocationData | null>(null)
+>>>>>>> eeb50ad24c6121a56a7ba6e6ac94f7c0b9b9c7fd
   
   const supabase = createClient()
   const router = useRouter()
