@@ -1,0 +1,143 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.percentage {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--primary-color);
+}
+
+.track {
+  width: 100%;
+  background-color: var(--border-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.track.small {
+  height: 4px;
+}
+
+.track.medium {
+  height: 8px;
+}
+
+.track.large {
+  height: 12px;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s ease-out;
+}
+
+.bar.animated {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bar.primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover-color) 100%);
+}
+
+.bar.secondary {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover-color) 100%);
+}
+
+.bar.success {
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+}
+
+.bar.warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #dd6b20 100%);
+}
+
+.bar.error {
+  background: linear-gradient(135deg, var(--error-color) 0%, #e53e3e 100%);
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Glow effect for animated bars */
+.bar.animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+  opacity: 0;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.bar.primary.animated::after {
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+}
+
+.bar.secondary.animated::after {
+  box-shadow: 0 0 10px rgba(80, 227, 194, 0.3);
+}
+
+.bar.success.animated::after {
+  box-shadow: 0 0 10px rgba(72, 187, 120, 0.3);
+}
+
+.bar.warning.animated::after {
+  box-shadow: 0 0 10px rgba(237, 137, 54, 0.3);
+}
+
+.bar.error.animated::after {
+  box-shadow: 0 0 10px rgba(245, 101, 101, 0.3);
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

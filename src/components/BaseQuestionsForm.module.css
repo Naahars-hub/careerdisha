@@ -1,0 +1,511 @@
+.main {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--secondary-light-color) 100%);
+  position: relative;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2350E3C2" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--surface-color);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-light);
+  position: relative;
+  z-index: 1;
+}
+
+.formContainer {
+  background-color: var(--surface-color);
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+  border: none;
+  position: relative;
+  overflow: visible;
+}
+
+.formContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.formContainer h2 {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  color: var(--text-primary);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  position: relative;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.formContainer h2::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: var(--radius-full);
+}
+
+.formGroup {
+  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.formGroup:last-of-type {
+  margin-bottom: var(--space-6);
+}
+
+/* Question Block Styles */
+.questionBlock {
+  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.questionBlock:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.questionLabel {
+  margin-bottom: var(--space-4);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  display: block;
+}
+
+.questionInput {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: 'Poppins', sans-serif;
+  font-weight: var(--font-medium);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.questionInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1), var(--shadow-md);
+  transform: translateY(-2px);
+  background-color: rgba(74, 144, 226, 0.02);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.questionInput:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.questionInput:valid {
+  border-color: var(--success-color);
+  background-color: var(--success-light);
+}
+
+.questionInput:invalid:not(:placeholder-shown) {
+  border-color: var(--warning-color);
+  background-color: var(--warning-light);
+}
+
+/* Enhanced select styling for question inputs */
+.questionInput[type="select"],
+.questionInput select {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.questionInput option {
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  padding: var(--space-2);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.questionInput:focus option {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.questionInput option:hover {
+  background-color: var(--primary-light-color);
+  color: var(--primary-color);
+  font-weight: var(--font-semibold);
+}
+
+.formGroup label {
+  margin-bottom: var(--space-4);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: 'Poppins', sans-serif;
+  font-weight: var(--font-medium);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Enhanced select styling for better text visibility */
+.formGroup select {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.formGroup select option {
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  padding: var(--space-2);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+/* Enhanced styling for better dropdown visibility */
+.formGroup select:focus option {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.formGroup select option:hover {
+  background-color: var(--primary-light-color);
+  color: var(--primary-color);
+  font-weight: var(--font-semibold);
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1), var(--shadow-md);
+  transform: translateY(-2px);
+  background-color: rgba(74, 144, 226, 0.02);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.formGroup input:hover,
+.formGroup select:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.formGroup input:valid,
+.formGroup select:valid {
+  border-color: var(--success-color);
+  background-color: var(--success-light);
+}
+
+.formGroup input:invalid:not(:placeholder-shown),
+.formGroup select:invalid:not(:placeholder-shown) {
+  border-color: var(--error-color);
+  background-color: var(--error-light);
+}
+
+.button {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover-color) 100%);
+  color: white;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  font-family: 'Poppins', sans-serif;
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-top: var(--space-8);
+  box-shadow: var(--shadow-md);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading state */
+.button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.button.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar Styles */
+.progressContainer {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-medium);
+  margin: 0;
+}
+
+/* Navigation Buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.navButton {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.previousButton {
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+}
+
+.previousButton:hover:not(:disabled) {
+  background-color: var(--border-light);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+.previousButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nextButton {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover-color) 100%);
+  color: white;
+  border: 2px solid var(--primary-color);
+}
+
+.nextButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover-color) 100%);
+  color: white;
+  border: 2px solid var(--secondary-color);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    padding: var(--space-6) var(--space-3);
+  }
+  
+  .container {
+    padding: var(--space-6);
+  }
+  
+  .container h1 {
+    font-size: var(--text-2xl);
+  }
+  
+  .formGroup {
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+  
+  .formGroup label {
+    font-size: var(--text-base);
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    padding: var(--space-3);
+  }
+  
+  .button {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-base);
+  }
+  
+  .navigationButtons {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .navButton {
+    width: 100%;
+  }
+}

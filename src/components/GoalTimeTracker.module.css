@@ -1,0 +1,296 @@
+.container {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.container:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+.container.completed {
+  border-color: var(--success-color);
+  background: linear-gradient(135deg, var(--surface-elevated) 0%, rgba(72, 187, 120, 0.05) 100%);
+}
+
+.container.completed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.goalTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.completedBadge {
+  background: var(--success-color);
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.progressBadge {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.progressSection {
+  margin-bottom: var(--space-6);
+}
+
+.progressText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.timeSpent {
+  color: var(--text-primary);
+}
+
+.percentage {
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
+}
+
+.timerSection {
+  margin-bottom: var(--space-6);
+}
+
+.timerDisplay {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.liveTimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.timerLabel {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-medium);
+}
+
+.timerValue {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--primary-color);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controlButton {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 2px solid;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.controlButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.startButton {
+  background: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.startButton:hover:not(:disabled) {
+  background: #38a169;
+  border-color: #38a169;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.pauseButton {
+  background: var(--warning-color);
+  color: white;
+  border-color: var(--warning-color);
+}
+
+.pauseButton:hover:not(:disabled) {
+  background: #dd6b20;
+  border-color: #dd6b20;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stopButton {
+  background: var(--error-color);
+  color: white;
+  border-color: var(--error-color);
+}
+
+.stopButton:hover:not(:disabled) {
+  background: #e53e3e;
+  border-color: #e53e3e;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.resetButton {
+  background: var(--surface-color);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.resetButton:hover:not(:disabled) {
+  background: var(--border-light);
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-4);
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 80px;
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-medium);
+}
+
+.statValue {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .goalTitle {
+    min-width: auto;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controlButton {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statItem {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Animation for completed goals */
+@keyframes completedPulse {
+  0%, 100% {
+    box-shadow: var(--shadow-lg);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.3);
+  }
+}
+
+.container.completed {
+  animation: completedPulse 2s ease-in-out infinite;
+}

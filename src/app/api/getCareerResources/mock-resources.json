@@ -1,0 +1,158 @@
+{
+  "youtube": [
+    "https://www.youtube.com/watch?v=z-zfxCVj7D4",
+    "https://www.youtube.com/watch?v=09_5_o72h44"
+  ],
+  "links": [
+    "https://www.geeksforgeeks.org/how-to-become-a-machine-learning-engineer/",
+    "https://towardsdatascience.com/a-complete-guide-to-becoming-a-machine-learning-engineer-77992c102372",
+    "https://www.coursera.org/learn/machine-learning",
+    "https://www.edx.org/learn/artificial-intelligence"
+  ],
+  "skillIndiaDigital": {
+    "platform": "https://www.skillindiadigital.gov.in/home",
+    "courses": [
+      {
+        "title": "Python Programming Fundamentals",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Comprehensive Python programming course covering fundamentals to advanced concepts for software development and data science",
+        "sector": "Information Technology",
+        "duration": "Self-paced (3-4 months)",
+        "level": "Beginner to Intermediate",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      },
+      {
+        "title": "Web Development with HTML, CSS & JavaScript",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Complete web development course covering front-end technologies and responsive design",
+        "sector": "Information Technology",
+        "duration": "Self-paced (4-5 months)",
+        "level": "Beginner to Intermediate",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      },
+      {
+        "title": "Machine Learning and AI Basics",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Introduction to machine learning concepts, algorithms, and practical applications using Python",
+        "sector": "Information Technology",
+        "duration": "Self-paced (5-6 months)",
+        "level": "Intermediate to Advanced",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      },
+      {
+        "title": "Data Science and Analytics",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Complete data science course covering data analysis, visualization, and statistical modeling",
+        "sector": "Information Technology",
+        "duration": "Self-paced (6-7 months)",
+        "level": "Intermediate to Advanced",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      },
+      {
+        "title": "Advanced Excel and Data Analysis",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Advanced Excel skills including data analysis, pivot tables, macros, and VBA programming for business applications",
+        "sector": "Business & Finance",
+        "duration": "Self-paced (1-2 months)",
+        "level": "Intermediate",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      },
+      {
+        "title": "Project Management Professional",
+        "url": "https://www.skillindiadigital.gov.in/courses",
+        "description": "Professional project management course covering PMP methodologies, tools, and best practices",
+        "sector": "Management",
+        "duration": "Self-paced (4-5 months)",
+        "level": "Intermediate to Advanced",
+        "provider": "NSDC",
+        "certification": "Government Certified"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Skill India Studio",
+        "url": "https://studio.skillindiadigital.gov.in/",
+        "description": "Course creation and organization platform for educators and trainers",
+        "features": [
+          "Outline Editor for structuring course content",
+          "Multimedia Integration for videos and discussions",
+          "Collaborative Authoring for multiple authors"
+        ]
+      },
+      {
+        "name": "Skill India Digital Course Portal",
+        "url": "https://courses.skillindiadigital.gov.in/",
+        "description": "Main course portal with access to all courses, progress tracking, and certifications",
+        "features": [
+          "Progress Tracking and Analytics",
+          "Interactive Learning Modules",
+          "Digital Certificates and Badges",
+          "Mobile Learning Support"
+        ]
+      },
+      {
+        "name": "Skill India Digital Assessment Portal",
+        "url": "https://assessment.skillindiadigital.gov.in/",
+        "description": "Online assessment and evaluation platform for skill validation and certification",
+        "features": [
+          "Automated Skill Assessments",
+          "Industry-Recognized Certifications",
+          "Performance Analytics",
+          "Career Guidance Integration"
+        ]
+      }
+    ],
+    "benefits": [
+      "100% FREE access to government-backed industry-relevant courses",
+      "Self-paced learning with flexible schedules and mobile support",
+      "Official government certification upon course completion",
+      "Industry-recognized credentials accepted by employers nationwide",
+      "Direct career advancement opportunities and job placement support",
+      "Comprehensive skill development across 40+ sectors and 500+ courses",
+      "Access to Skill India Digital's extensive learning ecosystem",
+      "Integration with government employment schemes and initiatives"
+    ]
+  },
+  "applicationWindow": "College admissions for B.Tech programs typically open between August and November for entrance exams held in the following year.",
+  "exams": [
+    {
+      "name": "JEE Main & Advanced",
+      "lastExamDate": "April 2024",
+      "expectedNextDate": "April 2025",
+      "conductingBody": "NTA",
+      "level": "National"
+    },
+    {
+      "name": "BITSAT",
+      "lastExamDate": "May 2024",
+      "expectedNextDate": "May 2025",
+      "conductingBody": "BITS Pilani",
+      "level": "University"
+    },
+    {
+      "name": "VITEEE",
+      "lastExamDate": "April 2024",
+      "expectedNextDate": "April 2025",
+      "conductingBody": "VIT University",
+      "level": "University"
+    },
+    {
+      "name": "MHT-CET",
+      "lastExamDate": "May 2024",
+      "expectedNextDate": "May 2025",
+      "conductingBody": "State CET Cell",
+      "level": "State"
+    }
+  ],
+  "preparationStrategy": "Focus on a strong foundation in Mathematics (Calculus, Linear Algebra, Probability) and Programming (Python is highly recommended). Participate in competitive programming and build personal projects on platforms like GitHub to showcase your skills. Additionally, consider Skill India Digital courses for practical skill development and industry exposure.",
+  "difficulty": {
+    "acceptanceRate": "2% selected",
+    "applicants": 1500000,
+    "seats": 30000
+  }
+}
